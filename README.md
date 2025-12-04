@@ -1,66 +1,61 @@
-# 📚 Sistema de Gestión Académica Escolar
+# Proyecto Final - Desarrollo de Aplicaciones Móviles
 
-Sistema completo de gestión académica desarrollado con **Angular** (frontend) y **Django REST Framework** (backend). Permite administrar usuarios (administradores, maestros y alumnos), gestionar eventos académicos, visualizar estadísticas y generar reportes.
+# Sistema de Gestión Académica Escolar
+
+Este proyecto consiste de un Sistema completo de gestión académica desarrollado con **Angular** (frontend) y **Django REST Framework** (backend). Permite administrar usuarios (administradores, maestros y alumnos), gestionar eventos académicos y visualizar graficas de estadísticas.
 
 ---
 
-## 🚀 Características Principales
+## Características Principales
 
-### 👥 Gestión de Usuarios
+### Gestión de Usuarios
 
 - **Administradores**: Control total del sistema, pueden gestionar todos los usuarios y eventos
 - **Maestros**: Pueden gestionar alumnos y consultar eventos dirigidos a profesores
 - **Alumnos**: Consultan información académica y eventos para estudiantes
 
-### 📅 Gestión de Eventos Académicos
+### Gestión de Eventos Académicos
 
-- CRUD completo de eventos (Crear, Leer, Actualizar, Eliminar)
+- CRUD completo de eventos (Create, Read, Update, Delate)
 - Tipos de eventos: Conferencias, Talleres, Seminarios, Concursos
 - Información detallada: fecha, horarios, lugar, público objetivo, responsable, cupo máximo
 - Filtrado automático de eventos según rol de usuario
 - Validaciones de formularios en frontend y backend
 
-### 📊 Dashboard y Estadísticas
+### Dashboard y Estadísticas
 
 - Gráficas dinámicas en tiempo real (Línea, Barras, Circular, Dona)
 - Estadísticas de usuarios por rol
-- Visualización de totales de administradores, maestros y alumnos
 
-### 🔒 Seguridad
+### Seguridad
 
 - Autenticación mediante JWT Bearer Token
 - Sistema de permisos basado en roles
 - Filtrado de información según tipo de usuario
-- Protección de rutas y endpoints
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 
-| Tecnología                    | Versión | Descripción                       |
-| ----------------------------- | ------- | --------------------------------- |
-| **Angular**                   | 16.x    | Framework principal               |
-| **Angular Material**          | 16.x    | Componentes UI                    |
-| **TypeScript**                | 5.x     | Lenguaje de programación          |
-| **ng2-charts**                | 5.x     | Librería para gráficas (Chart.js) |
-| **chartjs-plugin-datalabels** | 2.x     | Plugin para etiquetas en gráficas |
-| **RxJS**                      | 7.x     | Programación reactiva             |
+| Tecnología           | Versión | Descripción              |
+| -------------------- | ------- | ------------------------ |
+| **Angular**          | 16      | Framework principal      |
+| **Angular Material** | 16      | Componentes UI           |
+| **TypeScript**       | 5       | Lenguaje de programación |
 
 ### Backend
 
-| Tecnología                | Versión | Descripción                |
-| ------------------------- | ------- | -------------------------- |
-| **Python**                | 3.10+   | Lenguaje de programación   |
-| **Django**                | 4.2.x   | Framework web              |
-| **Django REST Framework** | 3.14.x  | API REST                   |
-| **MySQL**                 | 8.0+    | Base de datos              |
-| **mysqlclient**           | 2.x     | Conector MySQL para Python |
+| Tecnología                | Versión | Descripción              |
+| ------------------------- | ------- | ------------------------ |
+| **Python**                | 3.10    | Lenguaje de programación |
+| **Django**                | 4.2.    | Framework web            |
+| **Django REST Framework** | 3.14    | API REST                 |
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Proyecto-Desarrollo-de-Aplicaciones-Moviles/
@@ -68,7 +63,7 @@ Proyecto-Desarrollo-de-Aplicaciones-Moviles/
 ├── app-movil-escolar-webapp/          # Frontend Angular
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── layouts/               # Layouts (auth, dashboard)
+│   │   │   ├── layouts/               # Layouts
 │   │   │   ├── screens/               # Pantallas principales
 │   │   │   │   ├── login-screen/
 │   │   │   │   ├── home-screen/
@@ -84,7 +79,7 @@ Proyecto-Desarrollo-de-Aplicaciones-Moviles/
 │   │   │   │   ├── registro-maestros/
 │   │   │   │   ├── registro-alumnos/
 │   │   │   │   └── registro-eventos/
-│   │   │   ├── modals/                # Modales de confirmación
+│   │   │   ├── modals/                # Modales
 │   │   │   ├── services/              # Servicios HTTP
 │   │   │   └── shared/                # Utilidades compartidas
 │   │   ├── assets/                    # Imágenes y fuentes
@@ -100,36 +95,31 @@ Proyecto-Desarrollo-de-Aplicaciones-Moviles/
 │   │   ├── settings.py                # Configuración Django
 │   │   ├── urls.py                    # Rutas principales
 │   │   ├── views/                     # Vistas de la API
-│   │   │   ├── auth.py                # Autenticación
-│   │   │   ├── users.py               # Gestión de usuarios
+│   │   │   ├── auth.py
+│   │   │   ├── users.py
 │   │   │   ├── alumnos.py
 │   │   │   ├── maestros.py
-│   │   │   └── eventos.py             # Eventos académicos
+│   │   │   └── eventos.py
 │   │   └── migrations/                # Migraciones de BD
-│   ├── static/                        # Archivos estáticos
+│   ├── static/
 │   ├── manage.py
-│   ├── requirements.txt               # Dependencias Python
-│   ├── generar_registros.py          # Script para datos de prueba
-│   └── limpiar_duplicados.py         # Script de utilidad
-│
-├── .gitignore
-└── README.md
+│___├── requirements.txt               # Dependencias Python
+
 ```
 
 ---
 
-## 📋 Requisitos Previos
+## Requisitos Previos (Para utilizar este proyecto en Local)
 
-Antes de comenzar, asegúrate de tener instalado:
+Asegúrate de tener instalado:
 
 - **Node.js** v18+ y **npm** v9+
 - **Python** 3.10 o superior
-- **MySQL** 8.0 o superior
 - **Git**
 
 ---
 
-## 🔧 Instalación y Configuración
+## Instalación y Configuración
 
 ### 1️⃣ Clonar el Repositorio
 
@@ -202,14 +192,6 @@ DATABASES = {
 python manage.py migrate
 ```
 
-#### Paso 6: (Opcional) Cargar datos de prueba
-
-Este script genera 10 administradores, 10 maestros, 10 alumnos y 20 eventos académicos:
-
-```bash
-python generar_registros.py
-```
-
 #### Paso 7: Iniciar servidor
 
 ```bash
@@ -243,26 +225,14 @@ export const environment = {
 #### Paso 3: Iniciar aplicación
 
 ```bash
-ng serve
+ng serve -o
 ```
 
 La aplicación estará disponible en: `http://localhost:4200`
 
 ---
 
-## 👤 Usuarios de Prueba
-
-Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
-
-| Rol               | Usuario    | Contraseña    |
-| ----------------- | ---------- | ------------- |
-| **Administrador** | `admin1`   | `password123` |
-| **Maestro**       | `maestro1` | `password123` |
-| **Alumno**        | `alumno1`  | `password123` |
-
----
-
-## 🔗 Endpoints del API
+## Endpoints del API
 
 ### Autenticación
 
@@ -295,21 +265,21 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 
 ---
 
-## 📊 Funcionalidades por Rol
+## Funcionalidades por Rol
 
-### 🔴 Administrador
+### Administrador
 
 - ✅ Ver, crear, editar y eliminar todos los usuarios
 - ✅ Ver, crear, editar y eliminar todos los eventos
 - ✅ Acceso completo al dashboard y estadísticas
 
-### 🟡 Maestro
+### Maestro
 
 - ✅ Ver y gestionar (crear, editar, eliminar) alumnos
 - ✅ Ver eventos dirigidos a "Profesores" y "Público general"
 - ✅ Acceso a estadísticas
 
-### 🟢 Alumno
+### Alumno
 
 - ✅ Ver su información personal
 - ✅ Ver eventos dirigidos a "Estudiantes" y "Público general"
@@ -317,9 +287,9 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 
 ---
 
-## 🎨 Componentes Principales del Frontend
+## Componentes Principales del Frontend
 
-### Screens (Pantallas)
+### Screens
 
 - **login-screen**: Pantalla de inicio de sesión
 - **home-screen**: Dashboard principal con resumen
@@ -328,9 +298,9 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 - **alumnos-screen**: Lista y gestión de alumnos
 - **eventos-screen**: Lista y gestión de eventos académicos
 - **graficas-screen**: Visualización de estadísticas con gráficas
-- **registro-usuarios-screen**: Formulario dinámico de registro/edición
+- **registro-usuarios-screen**: Formulario de registro/edición
 
-### Partials (Componentes Reutilizables)
+### Partials
 
 - **navbar-user**: Barra de navegación superior
 - **sidebar**: Menú lateral de navegación
@@ -339,7 +309,7 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 - **registro-alumnos**: Formulario de alumnos
 - **registro-eventos**: Formulario de eventos académicos
 
-### Services (Servicios)
+### Services
 
 - **facade.service**: Gestión de sesión y token
 - **administradores.service**: Operaciones CRUD de administradores
@@ -351,9 +321,9 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 
 ---
 
-## 🗄️ Modelos de Datos
+## Modelos de Datos
 
-### User (Django Auth)
+### User
 
 - username
 - email
@@ -396,12 +366,12 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 ### EventosAcademicos
 
 - nombre_evento
-- tipo_evento (Conferencia, Taller, Seminario, Concurso)
+- tipo_evento
 - fecha_realizacion
 - hora_inicio
 - hora_fin
 - lugar
-- publico_objetivo (JSONField: Estudiantes, Profesores, Público general)
+- publico_objetivo (JSONField)
 - programa_educativo
 - responsable (FK a User)
 - descripcion
@@ -409,102 +379,11 @@ Después de ejecutar `generar_registros.py`, puedes iniciar sesión con:
 
 ---
 
-## 🐛 Solución de Problemas
+## Desarrollador
 
-### Error: "No module named 'MySQLdb'"
-
-```bash
-pip install mysqlclient
-```
-
-### Error: Angular CLI no encontrado
-
-```bash
-npm install -g @angular/cli
-```
-
-### Error de CORS en desarrollo
-
-Asegúrate de tener configurado en `settings.py`:
-
-```python
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",
-]
-```
-
-### Error de conexión a MySQL
-
-Verifica que MySQL esté corriendo:
-
-```bash
-# Windows
-services.msc  # Buscar MySQL
-
-# Linux
-sudo systemctl status mysql
-```
-
----
-
-## 📄 Scripts Útiles
-
-### Backend
-
-```bash
-# Crear superusuario de Django
-python manage.py createsuperuser
-
-# Generar datos de prueba
-python generar_registros.py
-
-# Limpiar duplicados
-python limpiar_duplicados.py
-
-# Colectar archivos estáticos
-python manage.py collectstatic
-```
-
-### Frontend
-
-```bash
-# Compilar para producción
-ng build --configuration production
-
-# Ejecutar tests
-ng test
-
-# Analizar tamaño del bundle
-ng build --stats-json
-```
-
----
-
-## 📝 Notas Importantes
-
-- Todos los usuarios de prueba tienen la contraseña: `password123`
-- El backend corre por defecto en: `http://localhost:8000`
-- El frontend corre por defecto en: `http://localhost:4200`
-- Las gráficas se actualizan automáticamente con datos reales de la base de datos
-- Los eventos se filtran automáticamente según el rol del usuario autenticado
-
----
-
-## 👨‍💻 Desarrollador
-
-**Adolfo Huerta Martínez**
+**Adolfo Huerta Martínez - 202262175**
 
 - GitHub: [@AdolfoHMtz](https://github.com/AdolfoHMtz)
 - Repositorio: [Proyecto-Desarrollo-de-Aplicaciones-Moviles](https://github.com/AdolfoHMtz/Proyecto-Desarrollo-de-Aplicaciones-Moviles)
 
 ---
-
-## 📜 Licencia
-
-Este proyecto fue desarrollado con fines educativos para la materia de **Desarrollo de Aplicaciones Móviles**.
-
----
-
-## 🙏 Agradecimientos
-
-Proyecto desarrollado como parte del curso de Desarrollo de Aplicaciones Móviles.
