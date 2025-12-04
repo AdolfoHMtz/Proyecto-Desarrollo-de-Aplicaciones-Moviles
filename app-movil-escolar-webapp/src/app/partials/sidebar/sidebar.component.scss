@@ -1,0 +1,217 @@
+// Paleta azul suave y profesional
+$sidebar-bg: #23395d;      // Azul oscuro, menos saturado
+$sidebar-accent: #1a2c48;  // Azul aún más oscuro
+$sidebar-hover: #30507a;   // Azul medio para hover
+$sidebar-active: #457ab9;  // Azul claro para activo
+$icon-color: #b5c6e0;      // Azul grisáceo para iconos
+$text-color: #e4ecfa;      // Azul muy claro para texto
+$logout-bg: #223153;       // Fondo botón logout
+$logout-hover: #3e5a8d;    // Hover botón logout
+
+.sidebar-container {
+  height: 100vh;
+  background: transparent;
+}
+
+.sidebar {
+  width: 200px;
+  background: $sidebar-bg;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  font-size: 1rem;
+  border-radius: 6px;
+  color: $text-color;
+
+  mat-icon {
+    margin-right: 0.6rem;
+    font-size: 1.2em;
+    color: $icon-color;
+    transition: color 0.18s;
+  }
+}
+
+.sidebar-list li.active,
+.sidebar-list li:hover {
+  background: $sidebar-hover;
+  color: $text-color;
+
+  mat-icon {
+    color: $text-color;
+  }
+}
+
+.sidebar-list li.active {
+  background: $sidebar-active;
+  color: #fff;
+
+  mat-icon {
+    color: #fff;
+  }
+}
+
+// Dropdown item styling
+.sidebar-list li {
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    font-size: 1rem;
+    border-radius: 6px;
+    color: $text-color;
+    position: relative;
+
+    mat-icon {
+      margin-right: 0.6rem;
+      font-size: 1.2em;
+      color: $icon-color;
+      transition: color 0.18s;
+    }
+
+    .expand-icon {
+      position: absolute;
+      right: 1rem;
+      font-size: 1.2em;
+      transition: transform 0.3s;
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: $sidebar-hover;
+      color: $text-color;
+
+      mat-icon {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Submenu styling
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: $sidebar-accent;
+  border-radius: 6px;
+  overflow: hidden;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem 0.8rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    font-size: 0.95rem;
+    color: $text-color;
+
+    mat-icon {
+      margin-right: 0.6rem;
+      font-size: 1.1em;
+      color: $icon-color;
+      transition: color 0.18s;
+    }
+
+    &:hover {
+      background: $sidebar-hover;
+      color: $text-color;
+
+      mat-icon {
+        color: $text-color;
+      }
+    }
+
+    &.active {
+      background: $sidebar-active;
+      color: #fff;
+
+      mat-icon {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.logout-btn {
+  margin: 1.2rem;
+  width: calc(100% - 2.4rem);
+  background: $logout-bg;
+  color: $text-color;
+  transition: background 0.18s, color 0.18s;
+
+  &:hover {
+    background: $logout-hover;
+    color: #fff;
+  }
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  background: $sidebar-bg;
+  color: $icon-color;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: block;
+  }
+  .sidebar {
+    width: 70vw;
+    min-width: 150px;
+    max-width: 90vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transition: width 0.2s;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.09);
+  }
+}
+.sidebar-container {
+  height: 100%;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.sidebar {
+  width: 200px;
+  background: $sidebar-bg;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: 100%; // <--- ¡No uses height: 100vh aquí!
+}
+

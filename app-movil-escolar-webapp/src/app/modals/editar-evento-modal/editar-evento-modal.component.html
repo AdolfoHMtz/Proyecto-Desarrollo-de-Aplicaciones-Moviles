@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="icon-close">
+      <button class="btn" (click)="cerrar_modal()" aria-label="Cerrar modal">
+          <i class="bi bi-x-lg"></i>
+      </button>
+  </div>
+  <div class="body-modal">
+      <h1 class="title-modal">Editar evento</h1>
+      <span class="descripcion">¿Estás seguro de que deseas actualizar este evento?</span>
+      <div class="buttons-modal">
+          <button mat-button class="btn-regresar" (click)="cerrar_modal()">
+              Cancelar
+          </button>
+          <button mat-button class="btn-editar" (click)="confirmarEdicion()">
+              Editar
+          </button>
+      </div>
+  </div>
+</div>

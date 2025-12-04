@@ -1,0 +1,70 @@
+<p>sidebar works!</p>
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav [opened]="!isMobileView || mobileOpen" [mode]="isMobileView ? 'over' : 'side'" class="sidebar"
+    (closedStart)="closeSidebar()" [disableClose]="!isMobileView">
+    <nav>
+      <ul class="sidebar-list">
+        <!-- Inicio - Available for admin and teachers only -->
+        <li *ngIf="canSeeHomeItem()" routerLink="/home" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>home</mat-icon>
+          <span>Inicio</span>
+        </li>
+        <li *ngIf="canSeeRegisterItem()" routerLink="/registro-usuarios" routerLinkActive="active"
+          (click)="closeSidebar()">
+          <mat-icon>person_add</mat-icon>
+          <span>Registro</span>
+        </li>
+
+        <!-- Admins - Only for administrators -->
+        <li *ngIf="canSeeAdminItems()" routerLink="/administrador" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <span>Admins</span>
+        </li>
+
+        <!-- Maestros - Only for administrators -->
+        <li *ngIf="canSeeAdminItems()" routerLink="/maestros" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>people</mat-icon>
+          <span>Maestros</span>
+        </li>
+
+        <!-- Alumnos - Available for all users -->
+        <li *ngIf="canSeeStudentItems()" routerLink="/alumnos" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>school</mat-icon>
+          <span>Alumnos</span>
+        </li>
+
+        <!-- Gráficas - Available for all users -->
+        <li *ngIf="canSeeStudentItems()" routerLink="/graficas" routerLinkActive="active" (click)="closeSidebar()">
+          <mat-icon>bar_chart</mat-icon>
+          <span>Gráficas</span>
+        </li>
+
+        <!-- Eventos Académicos -->
+        <li *ngIf="canSeeStudentItems()">
+          <div class="dropdown-item" (click)="toggleEventos()">
+            <mat-icon>event</mat-icon>
+            <span>Eventos Académicos</span>
+            <mat-icon class="expand-icon">{{ eventosExpanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </div>
+          <ul class="submenu" *ngIf="eventosExpanded">
+            <li *ngIf="canSeeAdminItems()" routerLink="/registro-eventos" routerLinkActive="active" (click)="closeSidebar()">
+              <mat-icon>add_circle</mat-icon>
+              <span>Registrar Evento</span>
+            </li>
+            <li routerLink="/eventos" routerLinkActive="active" (click)="closeSidebar()">
+              <mat-icon>list</mat-icon>
+              <span>Lista de Eventos</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <button mat-flat-button color="warn" class="logout-btn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Main content goes here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

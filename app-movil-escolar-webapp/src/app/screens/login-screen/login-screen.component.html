@@ -1,0 +1,63 @@
+<section class="login-new">
+  <div class="login-container">
+    <!-- Left: Form -->
+    <div class="login-form-section">
+      <div class="login-brand">
+        <img src="/assets/images/escudoB.png" alt="Logo BUAP" class="logo-buap" />
+        <span class="brand-title">Sistema Escolar</span>
+      </div>
+      <h2 class="login-title">Iniciar sesión</h2>
+      <p class="login-subtitle">Ingresa los datos que registraste</p>
+      <form (ngSubmit)="login()" class="login-form" #form="ngForm">
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            [(ngModel)]="username"
+            name="username"
+            class="form-control"
+            id="email"
+            placeholder="nombre@correo.com"
+            autocomplete="username"
+          />
+          <div *ngIf="errors.username" class="invalid-feedback">{{ errors.username }}</div>
+        </div>
+         <div class="form-group">
+          <label for="password">Contraseña</label>
+          <div style="position:relative;">
+            <input
+              [type]="type"
+              [(ngModel)]="password"
+              id="password"
+              name="password_user"
+              class="form-control pwd"
+              placeholder="Mínimo 8 caracteres"
+              autocomplete="current-password"
+              (keyup.enter)="login()"
+              style="padding-right:40px;"
+            />
+            <span class="show-password" (click)="showPassword()" style="position:absolute; right:18px; top:50%; transform:translateY(-50%);">
+              <i [ngClass]="type == 'password' ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+            </span>
+          </div>
+          <div *ngIf="errors.password" class="invalid-feedback">{{ errors.password }}</div>
+         </div>
+        <div class="form-links">
+          <a (click)="router.navigate(['olvide-contrasena'])">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button class="btn-login" type="submit" [disabled]="load">Iniciar sesión</button>
+        <div class="form-register">
+          ¿No tienes cuenta? <a (click)="registrar()">Regístrate</a>
+        </div>
+      </form>
+    </div>
+    <!-- Right: Illustration -->
+    <div class="login-illustration-section">
+      <div class="welcome-message">
+        <h2>¡Bienvenido de nuevo!</h2>
+        <p>Nos alegra verte otra vez</p>
+      </div>
+      <img src="/assets/images/buap-fcc.jpg" alt="Ilustración bienvenida" class="login-illustration" />
+    </div>
+  </div>
+</section>
